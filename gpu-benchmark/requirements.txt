@@ -1,0 +1,39 @@
+# PyTorch and Deep Learning
+torch==2.0.1
+torchvision==0.15.2
+torchaudio==2.0.2
+
+# Transformers and NLP
+transformers==4.30.0
+tokenizers==0.13.3
+datasets==2.12.0
+
+# GPU and CUDA utilities
+cuda-runtime-cu11==11.8.89
+cudnn==8.6.0
+
+# Monitoring and Profiling
+pynvml==11.4.1
+psutil==5.9.5
+py3nvml==0.2.7
+
+# Data processing and analysis
+numpy==1.24.3
+pandas==2.0.2
+scipy==1.11.1
+
+# Visualization
+matplotlib==3.7.1
+seaborn==0.12.2
+plotly==5.14.0
+
+# Utilities
+tqdm==4.65.0
+pyyaml==6.0
+python-dotenv==1.0.0
+click==8.1.3
+jinja2==3.1.2
+
+# Testing and Validation
+pytest==7.3.2
+pytest-cov==4.1.0

@@ -1,0 +1,58 @@
+# Test Parameters Configuration for Comprehensive Parameter Sweeping
+# Used for performance analysis and parameter tuning
+
+model:
+  name: "bert-base-uncased"
+  type: "bert"
+
+benchmark:
+  # Single parameter sweep for isolated testing
+  batch_size_sweep:
+    enabled: true
+    values: [4, 8, 16, 32, 64, 128]
+    hold_sequence_length: 128
+    hold_precision: "fp16"
+  
+  sequence_length_sweep:
+    enabled: true
+    values: [64, 128, 256, 384, 512]
+    hold_batch_size: 32
+    hold_precision: "fp16"
+  
+  precision_sweep:
+    enabled: true
+    values: ["fp32", "fp16", "int8"]
+    hold_batch_size: 32
+    hold_sequence_length: 128
+  
+  # Multi-parameter sweep for interaction analysis
+  multi_parameter_sweep:
+    enabled: false
+    batch_sizes: [16, 32, 64]
+    sequence_lengths: [128, 256, 512]
+    precisions: ["fp32", "fp16"]
+  
+  num_warmup_steps: 100
+  num_bench_steps: 500
+  num_iterations: 2
+  
+device:
+  device_type: "cuda"
+  device_id: 0
+  
+profiling:
+  collect_gpu_metrics: true
+  profile_memory: true
+  profile_latency: true
+  sample_interval: 0.1
+  
+analysis:
+  calculate_throughput: true
+  calculate_memory_efficiency: true
+  generate_comparison_plots: true
+  
+output:
+  output_dir: "./results/parameter_sweep"
+  save_detailed_csv: true
+  save_comparison_html: true
+  save_analysis_json: true
